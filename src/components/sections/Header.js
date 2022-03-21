@@ -19,9 +19,9 @@ const Header = () => (
             - La diferencia con el componente <Link> es que <NavLink> resalta de un color el componente que está renderizado.
             - exact : Propiedad que permite independizar (entre hijos) los colores de resaltado para cada <NavLink> */}
             <ul>
-              <li><NavLink to="/" exact>Inicio</NavLink></li>
-              <li><NavLink to="/cupcakes" exact>Cupcakes</NavLink></li>
-              <li><NavLink to="/nosotros" exact>Nosotros</NavLink></li>
+              <li><NavLink to="/">Inicio</NavLink></li>
+              <li><NavLink to="/cupcakes">Cupcakes</NavLink></li>
+              <li><NavLink to="/nosotros">Nosotros</NavLink></li>
             </ul>
 
               {/* Alternativa con el Componente <Link> */}

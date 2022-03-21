@@ -17,14 +17,15 @@ const App = () => (
   <BrowserRouter>
     <Header/>
     {/* 
-    No hay necesidad de que haya un orden en estas pero es recomendable tener la ruta con 'path="/"' al último
-    <Routes> Envolvemos solo a los componentes que van a redireccionar. Este componente también permite agrupar rutas.
-    <Route> : Declara una ruta al componente. Este componente es hijo de <Routes>
-    path : Propiedad que indica el nombre de la ruta.
-    element : Esel componente a renderizar según el atributo "path"
+    - No hay necesidad de que haya un orden en estas rutas pero es recomendable tener la ruta con 'path="/"' al último.
+    - <Routes> Este componente permite agrupar rutas. Envolvemos solo a los componentes que van a redireccionar.
+    - <Route> : Declara una ruta al componente. Este componente es hijo de <Routes>
+    - path : Propiedad que indica el nombre de la ruta.
+    - element : Es el componente a renderizar según el atributo "path".
+    - title : Prop enviada al archivo "cupcakes.js para luego condicionar el renderizar o no un elemento JSX.
     */}
     <Routes>
-      <Route path="/cupcakes" element={<Cupcakes/>}/>
+      <Route path="/cupcakes" element={<Cupcakes peticion="cupcakes" title/>}/>
       <Route path="/nosotros" element={<AboutUs/>}/>
       <Route path="/" element={<Home/>}/>
     </Routes>
