@@ -1,5 +1,5 @@
 //Import para poder usar los "links" (hipervículos) del React Router
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 const Header = () => (

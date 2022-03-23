@@ -25,9 +25,9 @@ const App = () => (
     - title : Prop enviada al archivo "cupcakes.js para luego condicionar el renderizar o no un elemento JSX.
     */}
     <Routes>
+      <Route path="/" element={<Home/>}/>
       <Route path="/cupcakes" element={<Cupcakes peticion="cupcakes" title/>}/>
       <Route path="/nosotros" element={<AboutUs/>}/>
-      <Route path="/" element={<Home/>}/>
     </Routes>
   </BrowserRouter>
   

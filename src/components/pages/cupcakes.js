@@ -1,13 +1,8 @@
 
-import { useEffect, useState } from "react"
-//Importamos al librería de Axios
-import Axios from "axios"
 import Cupcake from "../cards/cupcake"
+import useFetch from "../../hooks/useFetch"
 
 const Cupcakes = ({peticion, title}) => {
-
-    
-    const [cupcakes, setCupcakes] = useState()
 
     /*
 
@@ -18,6 +13,9 @@ const Cupcakes = ({peticion, title}) => {
     */
 
    /*
+
+    const [cupcakes, setCupcakes] = useState()
+
     useEffect(() => {
         fetch(`${process.env.REACT_APP_URL_API}${peticion}`)
         .then(response =>  response.json())
@@ -31,13 +29,19 @@ const Cupcakes = ({peticion, title}) => {
 
    - {data} : Usamos la desestructuración ya que pa información obtenida por Axios será devuleta/empaquetada dentro de un objeto llamado "data"
    */
+
+  /*
     useEffect(() => {
-        Axios.get(`${process.env.REACT_APP_URL_API}${peticion}`)        
+        // http://localhost:3050/cupcakes o http://localhost:3050/cupcakes?sabor_like=fresa  - Dependiendo de la prop "petición"
+        Axios.get(`${process.env.REACT_APP_URL_API}${peticion}`) 
         .then(({data}) => setCupcakes(data))
         
     }, [peticion])
+    */
 
-    
+    //USAMOS LOS HOOKS PROPIOS 
+    //useFetch() : Es una función/hook personlizado el cual le enviaremos de parámtro la petición, que es el enpoint
+    const [cupcakes] = useFetch(peticion)
     /*
     title && <h1>Página de cupcakes</h1> : Acá digo que si existe title, que renderice el JSX. este "title" es una condición de existencia.
     */
@@ -59,19 +63,18 @@ const Cupcakes = ({peticion, title}) => {
             cupcakes ? (        
                 <section className="ed-grid s-grid-2 m-grid-3 lg-grid-4 row-gap">
                     {
-                        cupcakes.map(({id, descripcion, imagen, sabor, color, precio}) => 
-                        <Cupcake key={id} imagen={imagen} descripcion={descripcion} sabor={sabor} color={color} precio={precio} />
+                        cupcakes.map(({id, descripcion, imagen, sabor, color, precio, vendido}) => 
+                        <Cupcake key={id} id={id} imagen={imagen} descripcion={descripcion} sabor={sabor} color={color} precio={precio} vendido={vendido} />
                         )
                     }                            
                 </section>
-                    ) : (
-                        <span>Cargando...</span>
+                    ) : (                        
+                        <span>Cargando...</span>                        
                     )
             }
             
         </div>
     )
-}
-    
+}    
 
 export default Cupcakes

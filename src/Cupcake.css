@@ -1,0 +1,4 @@
+.vendido{
+    /*Este estilo genera una escala de grises, es decir, vuelve gris al elemento*/
+    filter: grayscale(1);
+}
